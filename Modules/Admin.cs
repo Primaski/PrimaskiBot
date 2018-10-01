@@ -27,20 +27,16 @@ namespace PrimaskiBot.Modules {
                 await ReplyAsync("You do not have permission to set the balance of others.");
                 return;
             }
-
             if ((args.Length - 3) < 1) {
                 await ReplyAsync("Args: " + args + ", Args Length: " + args.Length);
                 await ReplyAsync("At line 33: " + improperFormatSetBal);
                 return;
             }
-
-            Console.WriteLine("1");
             if ((args.Length - 3) < 1) {
                 Console.WriteLine(args);
                 await ReplyAsync("At line 40: " + improperFormatSetBal);
                 return;
             }
-
             string user, amountStr;
             int division = -1;
             for (int i = 0; i < args.Length; i++) {
@@ -48,7 +44,6 @@ namespace PrimaskiBot.Modules {
                     division = i;
             }
 
-            Console.WriteLine("2");
             if (division == -1) {
                 await ReplyAsync("At line 53: " + improperFormatSetBal);
                 return;
@@ -56,7 +51,6 @@ namespace PrimaskiBot.Modules {
             user = args.Substring(0, division);
             amountStr = args.Substring(division + 1, args.Length - (division + 1));
 
-            Console.WriteLine("3");
             if (!Int32.TryParse(amountStr, out int ignore)) {
                 await ReplyAsync("At line 61: " + improperFormatSetBal);
                 return;
